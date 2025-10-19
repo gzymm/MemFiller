@@ -15,8 +15,6 @@ This script can be used to test different things such as stress testing, system 
 
 -h, --help : Show the help message
 
--s, --size : Size of RAM to fill per cycle (Default : 1GB)
-
 -s, --skip-warning : Skip the warning message that requires confirmation
 
 # Example:
