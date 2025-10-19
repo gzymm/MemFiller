@@ -56,7 +56,3 @@ try:
 except KeyboardInterrupt:
     print(G+"\nScript canceled and terminated."+W)
     exit()
-except Exception as error:
-    print(R+"Something went wrong: "+W+str(error)+
-          R+"\nProcess will terminate."+W)
-    exit()
