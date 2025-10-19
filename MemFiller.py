@@ -8,7 +8,7 @@ size=0
 amount=0
 current=0
 
-W = "\033[0m"  # white
+W = "\033[0m"  # white/reset
 R = "\033[91m" # red
 G = "\033[92m" # green
 Y = "\033[93m" # yellow
@@ -25,9 +25,6 @@ size=args.size
 type=args.type
 amount=args.amount
 
-def err(C:str):
-    print(R+"Error: "+W+f"{C}")
-
 if not args.skip_warning:
     input(
         R+"WARNING!\n"
@@ -35,27 +32,27 @@ if not args.skip_warning:
         "Press Enter to continue. "+W
         )
 
-if type == "MB":
+if type.lower() == "mb":
     size=size*(1024**2)
     ok=True
-elif type == "GB":
+elif type.lower() == "gb":
     size=size*(1024**3)
     ok=True
 
 if ok:
     print(Y+f"MemFiller will automatically fill your ram up to {amount} {type}"+
-          "\nPress ^C to cancel and terminate the process."+W)
+          "\nPress ^C to cancel and terminate the process.\n"+W)
 
 try:
     while ok:
         if current >= amount:
             ok=False
-            print(G+f"Successfully filled {current} {type}")
-            input(G+"Press Enter to terminate")
+            print(G+f"Successfully filled {current} {type}"+W)
+            input(G+"Press Enter to terminate"+W)
             exit()
         current+=1
         b.append(bytearray(size))
         print(f"{current}/{amount} {type}")
 except KeyboardInterrupt:
-    print(G+"\nScript canceled and terminated.")
+    print(G+"\nScript canceled and terminated."+W)
     exit()
