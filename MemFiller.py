@@ -4,7 +4,7 @@ b=[]
 n=0
 ok=False
 type=""
-size=0
+size=1
 amount=0
 current=0
 
@@ -17,11 +17,9 @@ B = "\033[94m" # blue
 parser = argparse.ArgumentParser(description=B+"MemLeaker - Help"+W,epilog=Y+"Example:\n-a 4 -t GB [-sw]"+W)
 parser.add_argument("-a","--amount",type=int,help="Amount of RAM that you would like to fill",required=True)
 parser.add_argument("-t","--type",type=str,help="Type of storage (GB/MB)",required=True)
-parser.add_argument("-s","--size",type=int,help="Size of RAM to fill per cycle (Default : 1GB)",default=1)
 parser.add_argument("-sw","--skip-warning",action="store_true",help="Skip warning")
 
 args = parser.parse_args()
-size=args.size
 type=args.type
 amount=args.amount
 
