@@ -15,10 +15,10 @@ This script can be used to test different things such as stress testing, system 
 
 -h, --help : Show the help message
 
--s, --skip-warning : Skip the warning message that requires confirmation
+-p, --process : Number of instances as process
 
 # Example:
 
-MemFiller.py -a 4 -t GB
+MemFiller.py -a 4 -t GB -p 2
 
-This will fill the ram up to 4gb
+This will create 2 process that takes 4gb of ram each. 8gb in total of ram will be filled (amount*process)
