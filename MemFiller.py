@@ -9,24 +9,20 @@ G = "\033[92m" # green
 Y = "\033[93m" # yellow
 B = "\033[94m" # blue
 
-b=[]
-size=1
-amount=0
-current=0
-
 def mf(size,is_done,process,lock,single_proc=True):
+    b=[]
     current=0
     while current<amount:
         current+=1
         b.append(bytearray(size))
         print(Y+f"[{os.getpid()}]{W} {current}/{amount} {unit}")
     if single_proc:
-        print(Y+f"[{os.getpid()}]{G} Successfully filled {current} {unit}"+W)
+        print(G+f"✅ Successfully filled {current} {unit}"+W)
     elif not single_proc:
         with lock:
             is_done.value += 1
         if is_done.value == process:
-            print(Y+f"[{os.getpid()}]{G} Successfully filled {current} {unit} for {process} process ({amount*process} {unit} in total)"+W)
+            print(G+f"✅ Successfully filled {current} {unit} for {process} process ({amount*process} {unit} in total)"+W)
     try:
         while True:
             time.sleep(9)
@@ -35,12 +31,13 @@ def mf(size,is_done,process,lock,single_proc=True):
         exit()
 
 def conv(u:str)->int:
+    size=1
     if u.lower() == "mb":
         return size*(1024**2)
     elif u.lower() == "gb":
         return size*(1024**3)
     else:
-        print(R+f"Incorrect specified unit \"{u}\""+W)
+        print(R+f"❌ Incorrect specified unit \"{u}\""+W)
         exit()
 
 parser = argparse.ArgumentParser(description=B+"MemFiller - Help"+W,epilog=Y+"Example:\n-a 4 -t GB [-p 2]"+W)
