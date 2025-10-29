@@ -9,7 +9,7 @@ This script can be used to test different things such as stress testing, system 
 
 -a, --amount : Amount of RAM that you would like to fill
 
--t, --type : Type of storage to fille (GB/MB)
+-u, --unit : Type of storage to fille (GB/MB)
 
 ### Optional:
 
@@ -19,6 +19,6 @@ This script can be used to test different things such as stress testing, system 
 
 # Example:
 
-MemFiller.py -a 4 -t GB -p 2
+MemFiller.py -a 4 -u GB -p 2
 
 This will create 2 process that takes 4gb of ram each. 8gb in total of ram will be filled (amount*process)
