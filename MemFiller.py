@@ -54,7 +54,7 @@ if __name__ == "__main__":
     p=[]
     size=conv(unit)
     if process>1:
-        print(Y+f"MemFiller will automatically create {process} and fill your ram up to {amount} {unit} each ({amount*process} {unit} in total)"+
+        print(Y+f"MemFiller will automatically create {process} process and fill your ram up to {amount} {unit} each ({amount*process} {unit} in total)"+
         "\nPress ^C to cancel and terminate all process.\n"+W)
         is_done=multiprocessing.Value("i",0)
         lock=multiprocessing.Lock()
